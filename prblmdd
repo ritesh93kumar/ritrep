@@ -1,0 +1,18 @@
+
+--------- Problem Statement ---------------
+1- Mention your Application Usecase (e.g myapplication.txt)
+e.g Usecase1 : Customer should be able to book hotel
+    Usecase2 : Customer should be able to login
+
+2- Create a Java project
+3- Create interface corresponding to usecases defined in 1
+4- Create Util class for DB Connection
+5- Create appropriate exception and handle it
+6- Create DAO classes & implement DB operations in there.
+7- All inputs should be taken from User and should be placed in Client.java
+8- Use proper logging in all classes (Implementation class, DAO , Client)
+9- Use proper naming conventions for Variables, classes,packages, methods
+10- Use ForEach (modern for) wherever applicable
+11- For your application, generate report in C:/  (e.g reportForAllBooks)
+12- Provide atleast 1 Sort functionality . Use comparator , comparable wherever applicable
+13- Javadocs for all classes, methods mandatory
