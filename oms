@@ -1,0 +1,24 @@
+ASM Solutions wants to develop an Order Management  Software for JPTraders.
+JPTraders deals with various Cosmetic and Garments products.
+Cosmatic products has expiry date associated with it .Garments are available for Men,Women,and Kids in various sizes. Every product has its own information like id,name,description,mfg date, price etc…
+
+Create a Java application with below functionality.
+1.	Design a suitable  structure for this application
+2.	Allow below functionality for Admin User
+a.	Insert new Product in inventory
+b.	Search products 
+i.	Using  category
+ii.	Using Gender and Size in cases of garments
+c.	Remove product
+d.	Update product
+
+3.	Allow below functionality for Customer 
+a.	Register Customer
+b.	Search Product
+c.	Place Order(for one or more product)
+After placing order customer will see the bill with list of products and total bill amount.
+
+
+
+
+
