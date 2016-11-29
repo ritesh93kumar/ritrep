@@ -1,0 +1,28 @@
+@isTest
+public class NewSite_Test {
+    static testMethod void NewSite_Test(){
+        ApexPages.StandardController stdCtrl;
+        NewSite ns = new NewSite(stdCtrl);      
+		        
+        List<Contact> managers = [SELECT FirstName,Id,LastName FROM Contact WHERE RecordType.Name  = 'manager'];
+        List<NewSite.ManagersClass> mcl = new List<NewSite.ManagersClass>();
+        
+        test.startTest();
+        
+        for(Contact c : managers){
+            NewSite.ManagersClass mc= new NewSite.ManagersClass(c, false);
+            mcl.add(mc);
+        }
+				         
+        System.assertEquals(ns.getMangersList(), mcl);
+        
+        PageReference pageRef = Page.View_Site;        
+        Account site =new Account(Name = 'TestSite', Location__c = 'Goa', Reg_Code__c = 'test123', Contract_Start_Year__c = Date.today(), Contract_End_Year__c = Date.today()+365, Contractor__c ='0032800000hvkM6');
+    	insert site;
+        
+        Test.setCurrentPage(pageRef);
+        
+        System.assertEquals(ns.AddSite(), pageRef);
+        test.stopTest();
+    }
+}
