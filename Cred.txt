@@ -1,0 +1,35 @@
+
+Samanage Enterprise org
+    Url : https://samanageservicedesk-9244.cloudforce.com
+    UserName : bhakti_lawande@persistent.com.demo
+    Password: DevAdmin#123
+    New pass: Admin#123
+
+Samanage sandbox Service one poc
+    Url : https://samanageservicedesk-9244--SamanageIn.cs50.cloudforce.com/
+    UserName : bl@psl.samanagein
+    Password: DevAdmin#123
+
+Service Now
+    URL: https://developer.servicenow.com
+    UserName: ritesh_kumar@persistent.co.in 
+    Password: Ritz11@psl
+
+Service Now Instance
+        Name: dev17925
+        URL: https://dev17925.service-now.com/
+        Build: Jakarta                
+        Username: admin
+        Password: Ritz11@psl
+
+        Direct Login: https://dev17925.service-now.com/login.do?user_name=admin&sys_action=sysverb_login&user_password=Ritz11@psl
+
+JIRA Dev Instance
+        Url:  https://bhaktilawande.atlassian.net
+        UserName: bhakti_lawande@persistent.co.in
+        Password: DevAdmin#123
+        
+        JIRA Dev Instance
+        Url:  https://samange.atlassian.net
+        UserName: bhakti_lawande@persistent.co.in
+        Password: DevAdmin#123

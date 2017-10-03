@@ -1,0 +1,251 @@
+public class JSON2Apex {	
+	
+	public class JSON2Apex {
+		public String expand {get;set;} 
+		public Integer startAt {get;set;} 
+		public Integer maxResults {get;set;} 
+		public Integer total {get;set;} 
+		public List<Issues> issues {get;set;} 
+
+		public JSON2Apex(JSONParser parser) {
+			while (parser.nextToken() != JSONToken.END_OBJECT) {
+				if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
+					String text = parser.getText();
+					if (parser.nextToken() != JSONToken.VALUE_NULL) {
+						if (text == 'expand') {
+							expand = parser.getText();
+						} else if (text == 'startAt') {
+							startAt = parser.getIntegerValue();
+						} else if (text == 'maxResults') {
+							maxResults = parser.getIntegerValue();
+						} else if (text == 'total') {
+							total = parser.getIntegerValue();
+						} else if (text == 'issues') {
+							issues = new List<Issues>();
+							while (parser.nextToken() != JSONToken.END_ARRAY) {
+								issues.add(new Issues(parser));
+							}
+						} 
+					}
+				}
+			}
+		}
+	}
+
+    public class Issues {
+		public String expand {get;set;} 
+		public String id {get;set;} 
+		public String self {get;set;} 
+		public String key {get;set;} 
+		public Fields fields {get;set;} 
+
+		public Issues(JSONParser parser) {
+			while (parser.nextToken() != JSONToken.END_OBJECT) {
+				if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
+					String text = parser.getText();
+					if (parser.nextToken() != JSONToken.VALUE_NULL) {
+						if (text == 'expand') {
+							expand = parser.getText();
+						} else if (text == 'id') {
+							id = parser.getText();
+						} else if (text == 'self') {
+							self = parser.getText();
+						} else if (text == 'key') {
+							key = parser.getText();
+						} else if (text == 'fields') {
+							fields = new Fields(parser);
+						}
+					}
+				}
+			}
+		}
+	}
+
+    public class Fields {
+		public Issuetype issuetype {get;set;} 
+		public Project project {get;set;} 
+		public Integer workratio {get;set;} 
+		public String lastViewed {get;set;} 
+		public String created {get;set;} 
+		public Priority priority {get;set;} 
+		public String updated {get;set;} 
+		public Status status {get;set;} 
+		public String description {get;set;} 
+		public String summary {get;set;} 
+		public Creator creator {get;set;} 
+
+		public Fields(JSONParser parser) {
+			while (parser.nextToken() != JSONToken.END_OBJECT) {
+				if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
+					String text = parser.getText();
+					if (parser.nextToken() != JSONToken.VALUE_NULL) {
+						if (text == 'issuetype') {
+							issuetype = new Issuetype(parser);
+						} else if (text == 'project') {
+							project = new Project(parser);
+						} else if (text == 'workratio') {
+							workratio = parser.getIntegerValue();
+						} else if (text == 'lastViewed') {
+							lastViewed = parser.getText();
+						} else if (text == 'created') {
+							created = parser.getText();
+						} else if (text == 'priority') {
+							priority = new Priority(parser);
+						} else if (text == 'updated') {
+							updated = parser.getText();
+						} else if (text == 'status') {
+							status = new Status(parser);
+						} else if (text == 'description') {
+							description = parser.getText();
+						} else if (text == 'summary') {
+							summary = parser.getText();
+						} else if (text == 'creator') {
+							creator = new Creator(parser);
+						}
+					}
+				}
+			}
+		}
+	}
+
+    public class Issuetype {
+		public String id {get;set;} 
+		public String description {get;set;} 
+		public String name {get;set;} 
+		public Boolean subtask {get;set;} 
+
+		public Issuetype(JSONParser parser) {
+			while (parser.nextToken() != JSONToken.END_OBJECT) {
+				if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
+					String text = parser.getText();
+					if (parser.nextToken() != JSONToken.VALUE_NULL) {
+						if (text == 'id') {
+							id = parser.getText();
+						} else if (text == 'description') {
+							description = parser.getText();
+						} else if (text == 'name') {
+							name = parser.getText();
+						} else if (text == 'subtask') {
+							subtask = parser.getBooleanValue();
+						}
+					}
+				}
+			}
+		}
+	}
+    
+	public class Project {
+		public String id {get;set;} 
+		public String key {get;set;} 
+		public String name {get;set;} 
+
+		public Project(JSONParser parser) {
+			while (parser.nextToken() != JSONToken.END_OBJECT) {
+				if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
+					String text = parser.getText();
+					if (parser.nextToken() != JSONToken.VALUE_NULL) {
+						if (text == 'id') {
+							id = parser.getText();
+						} else if (text == 'key') {
+							key = parser.getText();
+						} else if (text == 'name') {
+							name = parser.getText();
+						}
+					}
+				}
+			}
+		}
+	}
+
+		
+	public class Priority {
+		public String self {get;set;} 
+		public String iconUrl {get;set;} 
+		public String name {get;set;} 
+		public String id {get;set;} 
+
+		public Priority(JSONParser parser) {
+			while (parser.nextToken() != JSONToken.END_OBJECT) {
+				if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
+					String text = parser.getText();
+					if (parser.nextToken() != JSONToken.VALUE_NULL) {
+						if (text == 'self') {
+							self = parser.getText();
+						} else if (text == 'iconUrl') {
+							iconUrl = parser.getText();
+						} else if (text == 'name') {
+							name = parser.getText();
+						} else if (text == 'id') {
+							id = parser.getText();
+						}
+					}
+				}
+			}
+		}
+	}
+
+    public class Status {
+		public String self {get;set;} 
+		public String description {get;set;} 
+		public String name {get;set;} 
+		public String id {get;set;} 
+
+		public Status(JSONParser parser) {
+			while (parser.nextToken() != JSONToken.END_OBJECT) {
+				if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
+					String text = parser.getText();
+					if (parser.nextToken() != JSONToken.VALUE_NULL) {
+						if (text == 'self') {
+							self = parser.getText();
+						} else if (text == 'description') {
+							description = parser.getText();
+						} else if (text == 'name') {
+							name = parser.getText();
+						} else if (text == 'id') {
+							id = parser.getText();
+						}  
+					}
+				}
+			}
+		}
+	}
+		
+	public class Creator {
+		public String name {get;set;} 
+		public String key {get;set;} 
+		public String accountId {get;set;} 
+		public String emailAddress {get;set;} 
+		public String displayName {get;set;} 
+		public Boolean active {get;set;} 
+		public String timeZone {get;set;} 
+
+		public Creator(JSONParser parser) {
+			while (parser.nextToken() != JSONToken.END_OBJECT) {
+				if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
+					String text = parser.getText();
+					if (parser.nextToken() != JSONToken.VALUE_NULL) {
+						if (text == 'name') {
+							name = parser.getText();
+						} else if (text == 'key') {
+							key = parser.getText();
+						} else if (text == 'accountId') {
+							accountId = parser.getText();
+						} else if (text == 'emailAddress') {
+							emailAddress = parser.getText();
+						} else if (text == 'displayName') {
+							displayName = parser.getText();
+						} else if (text == 'active') {
+							active = parser.getBooleanValue();
+						} else if (text == 'timeZone') {
+							timeZone = parser.getText();
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public static JSON2Apex parse(String json) {
+		return new JSON2Apex(System.JSON.createParser(json));
+	}
+}
